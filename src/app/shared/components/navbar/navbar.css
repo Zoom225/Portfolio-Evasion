@@ -1,0 +1,40 @@
+.navbar {
+  background-color: #1f2937;
+  padding: 15px 25px;
+
+
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.navbar a:hover {
+  color: #f59e0b;
+  border-bottom-color: #f59e0b;
+}
+
+
+.navbar a.active {
+  border-bottom: 2px solid #f59e0b;
+}
+

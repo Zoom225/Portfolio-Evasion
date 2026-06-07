@@ -59,3 +59,92 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 installé via le terminal  " npm install gsap   " 
+
+## Liaison de la page A propos
+
+Cette section explique comment la page `A propos` est reliee dans l'application.
+
+### 1) Routing (navigation)
+
+Le fichier `src/app/app.routes.ts` declare les routes Angular:
+
+- `path: 'about'` -> charge le composant `About`
+- `path: 'apropos'` -> alias vers le meme composant `About`
+
+Exemple:
+
+```ts
+{ path: 'about', component: About },
+{ path: 'apropos', component: About },
+```
+
+### 2) Navbar (liens utilisateur)
+
+Le menu est dans `src/app/shared/components/navbar/navbar.html`.
+
+- `routerLink="/"` pour l'accueil
+- `routerLink="/about"` pour la page A propos
+- `routerLink="/contact"` pour la page Contact
+
+Quand on clique sur `A propos`, Angular affiche le composant route dans le `router-outlet` principal.
+
+### 3) Zone d'affichage centrale
+
+Le `router-outlet` est dans `src/app/app.html`:
+
+```html
+<app-navbar></app-navbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+```
+
+Le composant actif (ex: `About`) est injecte automatiquement a cet endroit.
+
+### 4) Composition de la page A propos
+
+Le composant `About` est defini dans `src/app/features/about/about.ts`.
+
+- `About` importe `CommonModule`
+- `About` importe aussi `FrameworkGridComponent`
+
+```ts
+imports: [CommonModule, FrameworkGridComponent]
+```
+
+Template de la page `src/app/features/about/about.html`:
+
+```html
+<h1>A propos</h1>
+<p>Voici les frameworks que j'utilise pour developper mes projets.</p>
+<app-framework-grid></app-framework-grid>
+```
+
+### 5) Grille des frameworks
+
+Le composant de grille est dans:
+
+- `src/app/app/shared/components/framework-grid/framework-grid.ts`
+- `src/app/app/shared/components/framework-grid/framework-grid.html`
+- `src/app/app/shared/components/framework-grid/framework-grid.css`
+
+Il affiche 3 cartes (Angular, Spring Boot, Docker) avec `*ngFor`.
+
+## Etapes de verification rapide
+
+```bash
+npm install
+ng serve
+```
+
+Puis ouvrir:
+
+- `http://localhost:4200/about`
+- ou `http://localhost:4200/apropos`
+
+Build de verification:
+
+```bash
+ng build
+```
+

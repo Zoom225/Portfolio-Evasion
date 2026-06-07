@@ -1,0 +1,10 @@
+<section class="framework-section">
+  <h2>Frameworks utilises</h2>
+
+  <div class="framework-grid">
+    <article class="framework-card" *ngFor="let fw of frameworks">
+      <img [src]="fw.imageUrl" [alt]="fw.alt" loading="lazy" />
+      <h3>{{ fw.name }}</h3>
+    </article>
+  </div>
+</section>

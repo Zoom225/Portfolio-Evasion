@@ -1,0 +1,92 @@
+.framework-section {
+  margin-top: 2rem;
+}
+
+.framework-section h2 {
+  margin-bottom: 1rem;
+  color: #0f172a;
+  font-size: clamp(1.3rem, 1.8vw, 1.75rem);
+  letter-spacing: 0.2px;
+}
+
+.framework-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(170px, 1fr));
+  gap: 1.1rem;
+}
+
+.framework-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.framework-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(59, 130, 246, 0.08), rgba(14, 165, 233, 0.04));
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.framework-card:hover {
+  transform: translateY(-6px);
+  border-color: #93c5fd;
+  box-shadow: 0 14px 28px rgba(30, 64, 175, 0.18);
+}
+
+.framework-card:hover::before {
+  opacity: 1;
+}
+
+.framework-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.framework-card:hover img {
+  transform: scale(1.08) rotate(-2deg);
+  filter: drop-shadow(0 5px 10px rgba(14, 165, 233, 0.3));
+}
+
+.framework-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+  transition: color 220ms ease;
+}
+
+.framework-card:hover h3 {
+  color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+  .framework-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .framework-card,
+  .framework-card::before,
+  .framework-card img,
+  .framework-card h3 {
+    transition: none;
+  }
+
+  .framework-card:hover {
+    transform: none;
+  }
+}

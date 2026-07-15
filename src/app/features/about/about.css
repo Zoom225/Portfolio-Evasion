@@ -18,7 +18,7 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientFlow 4s ease infinite, slideInUp 0.8s ease-out;
+  animation: gradientFlow 4s ease infinite, slideInUp 0.8s ease-out, floatUp 3s ease-in-out infinite;
 }
 
 @keyframes gradientFlow {
@@ -41,6 +41,15 @@ p {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 

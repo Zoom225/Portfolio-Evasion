@@ -5,3 +5,239 @@ h1 {
 p {
   font-size: 18px;
 }
+
+/* Contact Container */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: slideInDown 0.8s ease-out;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact Content */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Poster Section */
+.poster-section {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.contact-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-poster:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Contact Info Section */
+.contact-info-section {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.contact-info-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Contact Card */
+.contact-card {
+  background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover {
+  transform: translateX(8px);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f4ff 100%);
+}
+
+.contact-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.contact-card:hover h3 {
+  color: #3b82f6;
+}
+
+.contact-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+.contact-card a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* CTA Button */
+.cta-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-info-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .contact-content {
+    gap: 1.5rem;
+  }
+
+  .contact-info-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-card h3 {
+    font-size: 1rem;
+  }
+
+  .contact-card p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}

@@ -17,10 +17,10 @@ export class Contact implements OnInit {
   message = '';
   messageType: 'success' | 'error' = 'success';
 
-  // EmailJS Configuration - À remplacer par vos clés
-  private emailjsServiceId = 'YOUR_SERVICE_ID';
-  private emailjsTemplateId = 'YOUR_TEMPLATE_ID';
-  private emailjsPublicKey = 'YOUR_PUBLIC_KEY';
+  // EmailJS Configuration
+  private emailjsServiceId = 'service_p7bm5hx';
+  private emailjsTemplateId = 'YOUR_TEMPLATE_ID'; // À remplacer une fois le template créé
+  private emailjsPublicKey = 'OYmf25JGZNAKpAKuf';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({

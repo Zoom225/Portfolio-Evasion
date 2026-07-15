@@ -86,11 +86,20 @@ p {
   animation: slideInRight 0.8s ease-out;
 }
 
-.contact-info-section h2 {
-  font-size: 2rem;
+/* Form Wrapper */
+.form-wrapper {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.form-wrapper h2 {
+  font-size: 1.75rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #ffffff;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 @keyframes slideInRight {
@@ -104,76 +113,129 @@ p {
   }
 }
 
-/* Contact Card */
-.contact-card {
-  background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.contact-card:hover {
-  transform: translateX(8px);
-  border-color: #3b82f6;
-  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
-  background: linear-gradient(135deg, #eff6ff 0%, #f0f4ff 100%);
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.contact-card h3 {
-  font-size: 1.1rem;
+.form-group label {
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #1f2937;
-  margin: 0 0 0.5rem 0;
-  transition: color 0.3s ease;
+  color: #ffffff;
 }
 
-.contact-card:hover h3 {
-  color: #3b82f6;
-}
-
-.contact-card p {
-  margin: 0;
-  color: #4b5563;
+.form-input,
+.form-textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
-.contact-card a {
-  color: #3b82f6;
-  text-decoration: none;
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.form-input.error,
+.form-textarea.error {
+  border-color: #ef4444;
+  background: rgba(254, 242, 242, 0.95);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error-message {
+  font-size: 0.85rem;
+  color: #fecaca;
   font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.contact-card a:hover {
-  color: #1e40af;
-  text-decoration: underline;
+  display: block;
 }
 
 /* CTA Button */
 .cta-button {
-  width: 100%;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
   color: #ffffff;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.cta-button:hover {
+.cta-button:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 }
 
-.cta-button:active {
+.cta-button:active:not(:disabled) {
   transform: translateY(-1px);
+}
+
+.cta-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Message */
+.success-message {
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.2);
+  border: 2px solid #22c55e;
+  border-radius: 8px;
+  color: #dcfce7;
+  font-weight: 600;
+  text-align: center;
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
@@ -191,12 +253,18 @@ p {
     gap: 2rem;
   }
 
-  .contact-info-section h2 {
+  .form-wrapper {
+    padding: 1.5rem;
+  }
+
+  .form-wrapper h2 {
     font-size: 1.5rem;
   }
 
-  .contact-card {
-    padding: 1.25rem;
+  .form-input,
+  .form-textarea {
+    padding: 0.75rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -218,21 +286,26 @@ p {
     gap: 1.5rem;
   }
 
-  .contact-info-section h2 {
+  .form-wrapper {
+    padding: 1.25rem;
+  }
+
+  .form-wrapper h2 {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
   }
 
-  .contact-card {
-    padding: 1rem;
-    margin-bottom: 1rem;
+  .form-group {
+    gap: 0.4rem;
   }
 
-  .contact-card h3 {
-    font-size: 1rem;
+  .form-input,
+  .form-textarea {
+    padding: 0.65rem;
+    font-size: 0.9rem;
   }
 
-  .contact-card p {
+  .form-group label {
     font-size: 0.9rem;
   }
 

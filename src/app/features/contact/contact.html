@@ -10,29 +10,94 @@
     </div>
 
     <div class="contact-info-section">
-      <h2>Me Contacter</h2>
-      
-      <div class="contact-card">
-        <h3>📧 Email</h3>
-        <p><a href="mailto:contact@example.com">contact@example.com</a></p>
-      </div>
+      <div class="form-wrapper">
+        <h2>Envoyez-moi un message</h2>
+        
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <!-- Nom -->
+          <div class="form-group">
+            <label for="nom">Nom *</label>
+            <input
+              type="text"
+              id="nom"
+              formControlName="nom"
+              placeholder="Votre nom"
+              class="form-input"
+              [class.error]="submitted && nom?.invalid"
+            />
+            <span class="error-message" *ngIf="submitted && nom?.invalid">
+              <span *ngIf="nom?.errors?.['required']">Le nom est requis</span>
+              <span *ngIf="nom?.errors?.['minlength']">Minimum 2 caractères</span>
+            </span>
+          </div>
 
-      <div class="contact-card">
-        <h3>💼 LinkedIn</h3>
-        <p><a href="https://linkedin.com" target="_blank" rel="noopener">Mon profil LinkedIn</a></p>
-      </div>
+          <!-- Prénom -->
+          <div class="form-group">
+            <label for="prenom">Prénom *</label>
+            <input
+              type="text"
+              id="prenom"
+              formControlName="prenom"
+              placeholder="Votre prénom"
+              class="form-input"
+              [class.error]="submitted && prenom?.invalid"
+            />
+            <span class="error-message" *ngIf="submitted && prenom?.invalid">
+              <span *ngIf="prenom?.errors?.['required']">Le prénom est requis</span>
+              <span *ngIf="prenom?.errors?.['minlength']">Minimum 2 caractères</span>
+            </span>
+          </div>
 
-      <div class="contact-card">
-        <h3>💻 GitHub</h3>
-        <p><a href="https://github.com" target="_blank" rel="noopener">Mon profil GitHub</a></p>
-      </div>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="votre.email@example.com"
+              class="form-input"
+              [class.error]="submitted && email?.invalid"
+            />
+            <span class="error-message" *ngIf="submitted && email?.invalid">
+              <span *ngIf="email?.errors?.['required']">L'email est requis</span>
+              <span *ngIf="email?.errors?.['email']">Email invalide</span>
+            </span>
+          </div>
 
-      <div class="contact-card">
-        <h3>📱 Réseaux Sociaux</h3>
-        <p><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a> | <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></p>
-      </div>
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              placeholder="Décrivez votre projet..."
+              class="form-textarea"
+              [class.error]="submitted && messageControl?.invalid"
+              rows="5"
+            ></textarea>
+            <span class="error-message" *ngIf="submitted && messageControl?.invalid">
+              <span *ngIf="messageControl?.errors?.['required']">Le message est requis</span>
+              <span *ngIf="messageControl?.errors?.['minlength']">Minimum 10 caractères</span>
+            </span>
+          </div>
 
-      <button class="cta-button">Envoyer un Message</button>
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="cta-button"
+            [disabled]="loading"
+          >
+            <span *ngIf="!loading">Envoyer le message</span>
+            <span *ngIf="loading" class="loading-spinner">Envoi en cours...</span>
+          </button>
+
+          <!-- Success Message -->
+          <div class="success-message" *ngIf="message">
+            {{ message }}
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

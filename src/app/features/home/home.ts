@@ -62,6 +62,10 @@ export class HomeComponent implements AfterViewInit {
     'PostgreSQL',
     'H2',
     'Git',
+    'REST API',
+    'HTML',
+    'TAILLIWINGCSS',
+    'GITHUB',
     'REST API'
   ];
 

@@ -92,8 +92,11 @@
             <span *ngIf="loading" class="loading-spinner">Envoi en cours...</span>
           </button>
 
-          <!-- Success Message -->
-          <div class="success-message" *ngIf="message">
+          <!-- Success/Error Message -->
+          <div class="success-message" *ngIf="message && messageType === 'success'">
+            {{ message }}
+          </div>
+          <div class="success-message" *ngIf="message && messageType === 'error'" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fecaca;">
             {{ message }}
           </div>
         </form>

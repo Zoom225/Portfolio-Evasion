@@ -73,7 +73,7 @@ export class FrameworkGridComponent {
     },
     {
       name: 'MongoDB',
-      imageUrl: 'https://webimages.mongodb.com/_com_assets/cms/kuyjf3hzw2gvr5t44-horizontal_green.svg',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg',
       alt: 'Logo MongoDB'
     }
   ];

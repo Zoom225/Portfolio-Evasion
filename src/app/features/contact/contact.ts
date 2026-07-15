@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
@@ -17,7 +16,7 @@ export class Contact {
   message = '';
   messageType: 'success' | 'error' = 'success';
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       nom: ['', [Validators.required, Validators.minLength(2)]],
       prenom: ['', [Validators.required, Validators.minLength(2)]],
@@ -52,40 +51,26 @@ export class Contact {
     this.loading = true;
     const formData = this.contactForm.value;
 
-    // Créer un FormData pour envoyer via FormSubmit
-    const data = new FormData();
-    data.append('nom', formData.nom);
-    data.append('prenom', formData.prenom);
-    data.append('email', formData.email);
-    data.append('message', formData.message);
-    data.append('_subject', `Nouveau message de ${formData.prenom} ${formData.nom}`);
-    data.append('_redirect', 'https://yourdomain.com/contact'); // Redirection après envoi
+    // Construire le corps du message
+    const emailBody = `Nouveau message de contact:\n\nNom: ${formData.nom}\nPrénom: ${formData.prenom}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    
+    // URL encodée pour mailto
+    const mailtoLink = `mailto:bobypro225@gmail.com?subject=Nouveau message de ${encodeURIComponent(formData.prenom + ' ' + formData.nom)}&body=${encodeURIComponent(emailBody)}`;
 
-    // Envoyer via FormSubmit (service gratuit)
-    this.http.post('https://formsubmit.co/bobypro225@gmail.com', data)
-      .subscribe(
-        (response: any) => {
-          console.log('Email envoyé avec succès:', response);
-          this.messageType = 'success';
-          this.message = '✅ Votre message a été envoyé avec succès!';
-          this.contactForm.reset();
-          this.submitted = false;
-          this.loading = false;
+    // Ouvrir le client email par défaut
+    window.location.href = mailtoLink;
 
-          setTimeout(() => {
-            this.message = '';
-          }, 5000);
-        },
-        (error) => {
-          console.error('Erreur lors de l\'envoi:', error);
-          this.messageType = 'error';
-          this.message = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
-          this.loading = false;
+    // Simuler un envoi réussi
+    setTimeout(() => {
+      this.messageType = 'success';
+      this.message = '✅ Votre client email s\'est ouvert. Cliquez sur Envoyer pour finaliser.';
+      this.contactForm.reset();
+      this.submitted = false;
+      this.loading = false;
 
-          setTimeout(() => {
-            this.message = '';
-          }, 5000);
-        }
-      );
+      setTimeout(() => {
+        this.message = '';
+      }, 7000);
+    }, 500);
   }
 }

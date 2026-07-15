@@ -33,7 +33,7 @@ export class FrameworkGridComponent {
     },
     {
       name: 'TailwindCSS',
-      imageUrl: 'https://www.tailwindcss.com/_next/static/media/tailwindcss-mark.cb8046c163f77190406dfdf0d91e4bed.svg',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg',
       alt: 'Logo TailwindCSS'
     },
     {

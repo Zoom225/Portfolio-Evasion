@@ -19,7 +19,6 @@ export class Contact implements OnInit {
 
   // EmailJS Configuration
   private emailjsServiceId = 'service_p7bm5hx';
-  private emailjsTemplateId = 'YOUR_TEMPLATE_ID'; // À remplacer une fois le template créé
   private emailjsPublicKey = 'OYmf25JGZNAKpAKuf';
 
   constructor(private fb: FormBuilder) {
@@ -32,7 +31,7 @@ export class Contact implements OnInit {
   }
 
   ngOnInit() {
-    // Initialiser EmailJS - À remplacer par votre clé publique
+    // Initialiser EmailJS
     emailjs.init(this.emailjsPublicKey);
   }
 
@@ -62,19 +61,20 @@ export class Contact implements OnInit {
     this.loading = true;
     const formData = this.contactForm.value;
 
-    // Paramètres pour l'email
+    // Paramètres pour l'email - utilise les variables par défaut d'EmailJS
     const templateParams = {
+      to_email: 'bobypro225@gmail.com',
       from_name: `${formData.prenom} ${formData.nom}`,
       from_email: formData.email,
-      to_email: 'bobypro225@gmail.com',
-      subject: `Nouveau message de ${formData.prenom} ${formData.nom}`,
-      message: formData.message,
+      user_email: formData.email,
+      user_message: formData.message,
+      message: `Nouveau message de ${formData.prenom} ${formData.nom}\n\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
       reply_to: formData.email
     };
 
-    // Envoyer l'email via EmailJS
+    // Envoyer l'email via EmailJS sans template spécifique
     emailjs
-      .send(this.emailjsServiceId, this.emailjsTemplateId, templateParams)
+      .send(this.emailjsServiceId, 'default_template', templateParams)
       .then(
         (response) => {
           console.log('Email envoyé avec succès:', response);
@@ -84,7 +84,6 @@ export class Contact implements OnInit {
           this.submitted = false;
           this.loading = false;
 
-          // Effacer le message après 5 secondes
           setTimeout(() => {
             this.message = '';
           }, 5000);
@@ -92,10 +91,9 @@ export class Contact implements OnInit {
         (error) => {
           console.error('Erreur lors de l\'envoi:', error);
           this.messageType = 'error';
-          this.message = '❌ Erreur lors de l\'envoi du message. Veuillez réessayer.';
+          this.message = '❌ Erreur lors de l\'envoi. Veuillez créer un template dans EmailJS.';
           this.loading = false;
 
-          // Effacer le message après 5 secondes
           setTimeout(() => {
             this.message = '';
           }, 5000);

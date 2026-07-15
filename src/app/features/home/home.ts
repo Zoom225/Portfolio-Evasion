@@ -7,6 +7,7 @@ import {
   ViewChildren
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -30,6 +31,8 @@ export class HomeComponent implements AfterViewInit {
   @ViewChildren('revealSection') revealSections!: QueryList<ElementRef>;
   @ViewChildren('projectCard') projectCards!: QueryList<ElementRef>;
   @ViewChildren('skillItem') skillItems!: QueryList<ElementRef>;
+
+  constructor(private router: Router) {}
 
   projects = [
     {
@@ -68,6 +71,10 @@ export class HomeComponent implements AfterViewInit {
     'GITHUB',
     'REST API'
   ];
+
+  goToContact() {
+    this.router.navigate(['/contact']);
+  }
 
   ngAfterViewInit(): void {
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });

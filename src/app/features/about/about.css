@@ -101,8 +101,20 @@ p {
   transition: transform 0.3s ease;
 }
 
+.wordpress-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 .expertise-card:hover .expertise-logo {
   transform: scale(1.15) rotate(-5deg);
+}
+
+.wordpress-card:hover .wordpress-logo {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 10px rgba(22, 163, 74, 0.5));
 }
 
 .expertise-card h3 {

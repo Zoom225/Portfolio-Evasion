@@ -51,26 +51,46 @@ export class Contact {
     this.loading = true;
     const formData = this.contactForm.value;
 
-    // Construire le corps du message
-    const emailBody = `Nouveau message de contact:\n\nNom: ${formData.nom}\nPrénom: ${formData.prenom}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    
-    // URL encodée pour mailto
-    const mailtoLink = `mailto:bobypro225@gmail.com?subject=Nouveau message de ${encodeURIComponent(formData.prenom + ' ' + formData.nom)}&body=${encodeURIComponent(emailBody)}`;
+    // Envoyer via Formspree
+    const formspreeData = new FormData();
+    formspreeData.append('nom', formData.nom);
+    formspreeData.append('prenom', formData.prenom);
+    formspreeData.append('email', formData.email);
+    formspreeData.append('message', formData.message);
+    formspreeData.append('_subject', `Nouveau message de ${formData.prenom} ${formData.nom}`);
+    formspreeData.append('_replyto', formData.email);
 
-    // Ouvrir le client email par défaut
-    window.location.href = mailtoLink;
+    fetch('https://formspree.io/f/xvgqzobd', {
+      method: 'POST',
+      body: formspreeData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then((response) => {
+      if (response.ok) {
+        this.messageType = 'success';
+        this.message = '✅ Votre message a été envoyé avec succès!';
+        this.contactForm.reset();
+        this.submitted = false;
+        this.loading = false;
 
-    // Simuler un envoi réussi
-    setTimeout(() => {
-      this.messageType = 'success';
-      this.message = '✅ Votre client email s\'est ouvert. Cliquez sur Envoyer pour finaliser.';
-      this.contactForm.reset();
-      this.submitted = false;
+        setTimeout(() => {
+          this.message = '';
+        }, 5000);
+      } else {
+        throw new Error('Erreur serveur');
+      }
+    })
+    .catch((error) => {
+      console.error('Erreur:', error);
+      this.messageType = 'error';
+      this.message = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
       this.loading = false;
 
       setTimeout(() => {
         this.message = '';
-      }, 7000);
-    }, 500);
+      }, 5000);
+    });
   }
 }

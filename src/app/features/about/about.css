@@ -6,4 +6,236 @@ p {
   font-size: 18px;
 }
 
+/* Animated Title */
+.animated-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 4s ease infinite, slideInUp 0.8s ease-out, floatUp 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Expertise Section */
+.expertise-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.expertise-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.expertise-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+}
+
+.no-code-card:hover {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+}
+
+.wordpress-card:hover {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+.ai-card:hover {
+  background: linear-gradient(135deg, #f3e8ff 0%, #ffffff 100%);
+}
+
+.expertise-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.nocode-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.expertise-card:hover .expertise-logo {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.no-code-card:hover .nocode-logo {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+}
+
+.expertise-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.no-code-card:hover h3 {
+  color: #f59e0b;
+}
+
+.wordpress-card:hover h3 {
+  color: #16a34a;
+}
+
+.ai-card:hover h3 {
+  color: #a855f7;
+}
+
+.expertise-card p {
+  font-size: 1rem;
+  color: #4b5563;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.expertise-card strong {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.no-code-card:hover strong {
+  color: #f59e0b;
+}
+
+.wordpress-card:hover strong {
+  color: #16a34a;
+}
+
+.ai-card:hover strong {
+  color: #a855f7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .expertise-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-title {
+    font-size: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+
+  .expertise-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .expertise-card {
+    padding: 1.5rem;
+  }
+
+  .expertise-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .expertise-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .expertise-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-title {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  .expertise-section {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .expertise-card {
+    padding: 1rem;
+    border-width: 1px;
+  }
+
+  .expertise-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .expertise-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0.75rem;
+  }
+
+  .expertise-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .expertise-card p {
+    font-size: 0.9rem;
+  }
+}
+
 

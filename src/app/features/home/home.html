@@ -9,7 +9,7 @@
       </div>
 
       <h1 #heroTitle>
-        KANGOUTE  AZOUMANAN
+        KANGOUTE AZOUMANAN
       </h1>
 
       <h2 #heroSubtitle>
@@ -53,8 +53,12 @@
     <h3 class="section-title">Une présentation claire de mon profil</h3>
     <p class="section-text">
       Cette page met en avant mon profil de développeur à travers une identité
-      visuelle moderne, une stack technique visible et des quelque projets concrets
+      visuelle moderne, une stack technique visible et de quelque projets concrets
       orientés Java, Angular et intégration full-stack.
+      capable de concevoir, développer et maintenir des applications web sécurisées, évolutives et performantes.
+      Connaissance de l’analyse fonctionnelle, la modélisation UML, le développement d’API REST sécurisées avec JWT, la
+      gestion de bases de données relationnelles, l’intégration front-end et les tests logiciels. Sérieux, polyvalent et
+      motivé, je travaille efficacement en équipe tout en respectant les objectifs et les délais d’un projet.
     </p>
   </div>
 </section>
@@ -102,10 +106,12 @@
     </p>
 
     <div class="hero-actions">
-      <a href="mailto:tonemail@example.com" class="btn btn-primary">Envoyer un email</a>
+    <div class="hero-actions">
+      <button (click)="goToContact()" class="btn btn-primary">Envoyer un email</button>
       <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
         Voir GitHub
       </a>
+    </div>
     </div>
   </div>
 </section>

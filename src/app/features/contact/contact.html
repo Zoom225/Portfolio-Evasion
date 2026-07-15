@@ -1,2 +1,106 @@
-<h1>Contact</h1>
-<p>Tu peux nous contacter depuis cette page.</p>
+<div class="contact-container">
+  <div class="contact-header">
+    <h1>Parlons de votre projet</h1>
+    <p class="subtitle">Je suis passionné par la création de solutions innovantes. N'hésitez pas à me contacter!</p>
+  </div>
+
+  <div class="contact-content">
+    <div class="poster-section">
+      <img src="/affiche-kangoute.png" alt="Affiche Kangoute" class="contact-poster" loading="lazy" />
+    </div>
+
+    <div class="contact-info-section">
+      <div class="form-wrapper">
+        <h2>Envoyez-moi un message</h2>
+        
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <!-- Nom -->
+          <div class="form-group">
+            <label for="nom">Nom *</label>
+            <input
+              type="text"
+              id="nom"
+              formControlName="nom"
+              placeholder="Votre nom"
+              class="form-input"
+              [class.error]="submitted && nom?.invalid"
+            />
+            <span class="error-message" *ngIf="submitted && nom?.invalid">
+              <span *ngIf="nom?.errors?.['required']">Le nom est requis</span>
+              <span *ngIf="nom?.errors?.['minlength']">Minimum 2 caractères</span>
+            </span>
+          </div>
+
+          <!-- Prénom -->
+          <div class="form-group">
+            <label for="prenom">Prénom *</label>
+            <input
+              type="text"
+              id="prenom"
+              formControlName="prenom"
+              placeholder="Votre prénom"
+              class="form-input"
+              [class.error]="submitted && prenom?.invalid"
+            />
+            <span class="error-message" *ngIf="submitted && prenom?.invalid">
+              <span *ngIf="prenom?.errors?.['required']">Le prénom est requis</span>
+              <span *ngIf="prenom?.errors?.['minlength']">Minimum 2 caractères</span>
+            </span>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="votre.email@example.com"
+              class="form-input"
+              [class.error]="submitted && email?.invalid"
+            />
+            <span class="error-message" *ngIf="submitted && email?.invalid">
+              <span *ngIf="email?.errors?.['required']">L'email est requis</span>
+              <span *ngIf="email?.errors?.['email']">Email invalide</span>
+            </span>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              placeholder="Décrivez votre projet..."
+              class="form-textarea"
+              [class.error]="submitted && messageControl?.invalid"
+              rows="5"
+            ></textarea>
+            <span class="error-message" *ngIf="submitted && messageControl?.invalid">
+              <span *ngIf="messageControl?.errors?.['required']">Le message est requis</span>
+              <span *ngIf="messageControl?.errors?.['minlength']">Minimum 10 caractères</span>
+            </span>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="cta-button"
+            [disabled]="loading"
+          >
+            <span *ngIf="!loading">Envoyer le message</span>
+            <span *ngIf="loading" class="loading-spinner">Envoi en cours...</span>
+          </button>
+
+          <!-- Success/Error Message -->
+          <div class="success-message" *ngIf="message && messageType === 'success'">
+            {{ message }}
+          </div>
+          <div class="success-message" *ngIf="message && messageType === 'error'" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fecaca;">
+            {{ message }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

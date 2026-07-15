@@ -56,7 +56,7 @@ p {
 /* Expertise Section */
 .expertise-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -83,6 +83,10 @@ p {
 
 .no-code-card:hover {
   background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+}
+
+.wordpress-card:hover {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
 }
 
 .ai-card:hover {
@@ -114,6 +118,10 @@ p {
   color: #f59e0b;
 }
 
+.wordpress-card:hover h3 {
+  color: #16a34a;
+}
+
 .ai-card:hover h3 {
   color: #a855f7;
 }
@@ -135,11 +143,23 @@ p {
   color: #f59e0b;
 }
 
+.wordpress-card:hover strong {
+  color: #16a34a;
+}
+
 .ai-card:hover strong {
   color: #a855f7;
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .expertise-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .animated-title {
     font-size: 1.5rem;

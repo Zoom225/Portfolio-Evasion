@@ -12,6 +12,7 @@
     radial-gradient(circle at 84% 4%, rgba(79, 172, 254, 0.16), transparent 30%),
     linear-gradient(180deg, rgba(5, 15, 28, 0.96), #030912 82%);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 38px 38px 0 0;
 }
 
 .site-footer::before {
@@ -36,7 +37,7 @@
   gap: 40px;
   padding: clamp(28px, 4vw, 48px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
+  border-radius: 34px;
   background:
     linear-gradient(135deg, rgba(10, 30, 48, 0.92), rgba(10, 18, 32, 0.78)),
     rgba(255, 255, 255, 0.04);
@@ -347,11 +348,12 @@
 
   .site-footer {
     padding-top: 12px;
+    border-radius: 30px 30px 0 0;
   }
 
   .footer-cta {
     gap: 28px;
-    border-radius: 20px;
+    border-radius: 28px;
   }
 
   .footer-eyebrow {

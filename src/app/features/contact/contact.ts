@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.css',
+  styleUrls: ['./contact.css']
 })
 export class Contact {
   contactForm: FormGroup;
@@ -16,81 +18,70 @@ export class Contact {
   message = '';
   messageType: 'success' | 'error' = 'success';
 
-  constructor(private fb: FormBuilder) {
+  private formSubmitUrl = 'https://formsubmit.co/ajax/bobypro225@gmail.com';
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       nom: ['', [Validators.required, Validators.minLength(2)]],
       prenom: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
+      telephone: [''],
+      sujet: [''],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
-  get nom() {
-    return this.contactForm.get('nom');
-  }
-
-  get prenom() {
-    return this.contactForm.get('prenom');
-  }
-
-  get email() {
-    return this.contactForm.get('email');
-  }
-
-  get messageControl() {
-    return this.contactForm.get('message');
-  }
+  get nom() { return this.contactForm.get('nom'); }
+  get prenom() { return this.contactForm.get('prenom'); }
+  get email() { return this.contactForm.get('email'); }
+  get messageControl() { return this.contactForm.get('message'); }
 
   onSubmit() {
     this.submitted = true;
-
     if (this.contactForm.invalid) {
       return;
     }
 
     this.loading = true;
-    const formData = this.contactForm.value;
+    this.message = 'Envoi en cours...';
+    this.messageType = 'success';
 
-    // Envoyer via Formspree
-    const formspreeData = new FormData();
-    formspreeData.append('nom', formData.nom);
-    formspreeData.append('prenom', formData.prenom);
-    formspreeData.append('email', formData.email);
-    formspreeData.append('message', formData.message);
-    formspreeData.append('_subject', `Nouveau message de ${formData.prenom} ${formData.nom}`);
-    formspreeData.append('_replyto', formData.email);
+    const payload = {
+      ...this.contactForm.value,
+      _replyto: this.contactForm.value.email,
+      _subject: 'Nouveau message depuis votre site Evasion !',
+      _captcha: 'false',
+      _template: 'table'
+    };
 
-    fetch('https://formspree.io/f/xvgqzobd', {
-      method: 'POST',
-      body: formspreeData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then((response) => {
-      if (response.ok) {
-        this.messageType = 'success';
-        this.message = '✅ Votre message a été envoyé avec succès!';
-        this.contactForm.reset();
-        this.submitted = false;
+    const headers = new HttpHeaders({
+      Accept: 'application/json'
+    });
+
+    this.http.post(this.formSubmitUrl, payload, { headers }).pipe(
+      finalize(() => {
         this.loading = false;
-
-        setTimeout(() => {
-          this.message = '';
-        }, 5000);
-      } else {
-        throw new Error('Erreur serveur');
+      })
+    ).subscribe({
+      next: (response) => {
+        console.log('Formulaire soumis avec succès', response);
+        this.message = 'Message envoyé avec succès !';
+        this.messageType = 'success';
+        this.contactForm.reset({
+          nom: '',
+          prenom: '',
+          email: '',
+          telephone: '',
+          sujet: '',
+          message: ''
+        });
+        this.submitted = false;
+      },
+      error: (error) => {
+        console.error("Erreur lors de l'envoi", error);
+        this.message = "Une erreur est survenue. Veuillez réessayer plus tard.";
+        this.messageType = 'error';
       }
-    })
-    .catch((error) => {
-      console.error('Erreur:', error);
-      this.messageType = 'error';
-      this.message = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
-      this.loading = false;
-
-      setTimeout(() => {
-        this.message = '';
-      }, 5000);
     });
   }
 }

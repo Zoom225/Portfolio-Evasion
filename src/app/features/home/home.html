@@ -1,11 +1,11 @@
-<section class="hero">
+<section id="top" class="hero">
   <div class="bg-blur bg-blur-1"></div>
   <div class="bg-blur bg-blur-2"></div>
 
   <div class="container hero-grid">
     <div class="hero-content">
       <div #heroBadge class="hero-badge">
-        Disponible pour, alternance ou opportunité développeur
+        Disponible pour,une opportunité web développeur
       </div>
 
       <h1 #heroTitle>
@@ -52,13 +52,18 @@
     <p class="section-label">À propos</p>
     <h3 class="section-title">Une présentation claire de mon profil</h3>
     <p class="section-text">
-      Cette page met en avant mon profil de développeur à travers une identité
-      visuelle moderne, une stack technique visible et de quelque projets concrets
-      orientés Java, Angular et intégration full-stack.
-      capable de concevoir, développer et maintenir des applications web sécurisées, évolutives et performantes.
-      Connaissance de l’analyse fonctionnelle, la modélisation UML, le développement d’API REST sécurisées avec JWT, la
-      gestion de bases de données relationnelles, l’intégration front-end et les tests logiciels. Sérieux, polyvalent et
-      motivé, je travaille efficacement en équipe tout en respectant les objectifs et les délais d’un projet.
+      Cette page présente mon profil de développeur avec une identité visuelle moderne, une stack technique clairement
+      affichée et quelques projets concrets centrés sur Java et autre que j'ai pas implementé ici, Angular oui pour mon
+      portfolio et l’intégration full-stack.
+
+      Je me considère toujours comme un développeur en apprentissage, à un niveau intermédiaire : dans notre métier, il
+      y a toujours de nouvelles choses à découvrir et à maîtriser. Je suis capable de concevoir, développer et maintenir
+      des applications web sécurisées, évolutives et performantes.
+
+      Je possède des connaissances en analyse fonctionnelle, en modélisation UML, en développement d’API REST sécurisées
+      avec JWT, en gestion de bases de données relationnelles, en intégration front-end et en tests logiciels. Sérieux,
+      polyvalent et motivé, je travaille efficacement en équipe tout en respectant les objectifs et les délais d’un
+      projet.
     </p>
   </div>
 </section>
@@ -100,18 +105,199 @@
   <div class="container contact-box">
     <p class="section-label">Contact</p>
     <h3 class="section-title">Construisons quelque chose de solide</h3>
-    <p class="section-text">
-      Tu peux remplacer cette zone par ton email, ton GitHub, ton LinkedIn
-      ou un formulaire Angular connecté à ton backend.
-    </p>
+    <div class="logo-carousel contact-carousel" aria-label="Technologies utilisées">
+      <div class="logo-track">
+        <article class="logo-item">
+          <svg viewBox="0 0 120 120" role="img" aria-label="WordPress" class="logo-svg logo-wordpress">
+            <defs>
+              <linearGradient id="wpBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#1d4ed8" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="url(#wpBg)" />
+            <circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+            <path d="M41 40c2.8 0 5.3 1.1 7.2 2.9 2 1.9 3.1 4.4 3.1 7.1 0 3.1-1.2 5.7-3.7 8.2l-1.3 1.2 2.1 5.7 4.8-16.1h7.4l4.8 16.1 5.4-16.1h7.2l-8.6 24.7h-7.8l-4.4-14.3-4.5 14.3h-7.8l-7.6-20.1 2.1-1.8c2.1-1.8 3.1-3.7 3.1-5.7 0-1.2-.4-2.2-1.2-3.1-.8-.8-1.9-1.3-3.2-1.3-1.6 0-2.9.6-4 1.8l-4.5-4.1c2.5-2.9 5.8-4.4 9.7-4.4z" fill="#ffffff" />
+          </svg>
+          <span>WordPress</span>
+        </article>
+        <article class="logo-item">
+          <svg viewBox="0 0 120 120" role="img" aria-label="No Code" class="logo-svg">
+            <defs>
+              <linearGradient id="nocodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#ec4899" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="rgba(255,255,255,0.08)" stroke="url(#nocodeGradient)" stroke-width="4" />
+            <circle cx="60" cy="60" r="28" fill="none" stroke="url(#nocodeGradient)" stroke-width="4" />
+            <line x1="40" y1="80" x2="80" y2="40" stroke="url(#nocodeGradient)" stroke-width="6" stroke-linecap="round" />
+            <text x="33" y="54" font-size="20" font-weight="700" fill="#ffffff" font-family="Arial">&lt;</text>
+            <text x="61" y="72" font-size="20" font-weight="700" fill="#ffffff" font-family="Arial">/&gt;</text>
+          </svg>
+          <span>No Code</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" loading="lazy" />
+          <span>Angular</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg" alt="Spring Boot" loading="lazy" />
+          <span>Spring Boot</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker" loading="lazy" />
+          <span>Docker</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="TailwindCSS" loading="lazy" />
+          <span>TailwindCSS</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5" loading="lazy" />
+          <span>HTML5</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" loading="lazy" />
+          <span>GitHub</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" alt="Git" loading="lazy" />
+          <span>Git</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://www.typescriptlang.org/favicon-32x32.png" alt="TypeScript" loading="lazy" />
+          <span>TypeScript</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3" loading="lazy" />
+          <span>CSS3</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript" loading="lazy" />
+          <span>JavaScript</span>
+        </article>
+        <article class="logo-item">
+          <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL" loading="lazy" />
+          <span>PostgreSQL</span>
+        </article>
+        <article class="logo-item">
+          <svg viewBox="0 0 120 120" role="img" aria-label="MongoDB" class="logo-svg logo-mongo">
+            <defs>
+              <linearGradient id="mongoLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a7f3d0" />
+                <stop offset="55%" stop-color="#22c55e" />
+                <stop offset="100%" stop-color="#15803d" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="#052e16" />
+            <path d="M60 22c6 10 12 18 16 28 5 11 7 21 7 31 0 18-10 28-23 31-13-3-23-13-23-31 0-10 2-20 7-31 4-10 10-18 16-28z" fill="url(#mongoLeaf)" />
+            <path d="M60 30v58" stroke="#d1fae5" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+            <path d="M52 58c4 3 6 7 8 12 2-5 5-9 8-12" fill="none" stroke="#d1fae5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+          </svg>
+          <span>MongoDB</span>
+        </article>
+
+        <article class="logo-item" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="logo-svg logo-wordpress" aria-hidden="true">
+            <defs>
+              <linearGradient id="wpBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#1d4ed8" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="url(#wpBg2)" />
+            <circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
+            <path d="M41 40c2.8 0 5.3 1.1 7.2 2.9 2 1.9 3.1 4.4 3.1 7.1 0 3.1-1.2 5.7-3.7 8.2l-1.3 1.2 2.1 5.7 4.8-16.1h7.4l4.8 16.1 5.4-16.1h7.2l-8.6 24.7h-7.8l-4.4-14.3-4.5 14.3h-7.8l-7.6-20.1 2.1-1.8c2.1-1.8 3.1-3.7 3.1-5.7 0-1.2-.4-2.2-1.2-3.1-.8-.8-1.9-1.3-3.2-1.3-1.6 0-2.9.6-4 1.8l-4.5-4.1c2.5-2.9 5.8-4.4 9.7-4.4z" fill="#ffffff" />
+          </svg>
+          <span>WordPress</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="logo-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="nocodeGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#ec4899" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="rgba(255,255,255,0.08)" stroke="url(#nocodeGradient2)" stroke-width="4" />
+            <circle cx="60" cy="60" r="28" fill="none" stroke="url(#nocodeGradient2)" stroke-width="4" />
+            <line x1="40" y1="80" x2="80" y2="40" stroke="url(#nocodeGradient2)" stroke-width="6" stroke-linecap="round" />
+            <text x="33" y="54" font-size="20" font-weight="700" fill="#ffffff" font-family="Arial">&lt;</text>
+            <text x="61" y="72" font-size="20" font-weight="700" fill="#ffffff" font-family="Arial">/&gt;</text>
+          </svg>
+          <span>No Code</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="" loading="lazy" />
+          <span>Angular</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg" alt="" loading="lazy" />
+          <span>Spring Boot</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="" loading="lazy" />
+          <span>Docker</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="" loading="lazy" />
+          <span>TailwindCSS</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="" loading="lazy" />
+          <span>HTML5</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" loading="lazy" />
+          <span>GitHub</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" alt="" loading="lazy" />
+          <span>Git</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://www.typescriptlang.org/favicon-32x32.png" alt="" loading="lazy" />
+          <span>TypeScript</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="" loading="lazy" />
+          <span>CSS3</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="" loading="lazy" />
+          <span>JavaScript</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="" loading="lazy" />
+          <span>PostgreSQL</span>
+        </article>
+        <article class="logo-item" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="logo-svg logo-mongo" aria-hidden="true">
+            <defs>
+              <linearGradient id="mongoLeaf2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#a7f3d0" />
+                <stop offset="55%" stop-color="#22c55e" />
+                <stop offset="100%" stop-color="#15803d" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="#052e16" />
+            <path d="M60 22c6 10 12 18 16 28 5 11 7 21 7 31 0 18-10 28-23 31-13-3-23-13-23-31 0-10 2-20 7-31 4-10 10-18 16-28z" fill="url(#mongoLeaf2)" />
+            <path d="M60 30v58" stroke="#d1fae5" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+            <path d="M52 58c4 3 6 7 8 12 2-5 5-9 8-12" fill="none" stroke="#d1fae5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+          </svg>
+          <span>MongoDB</span>
+        </article>
+      </div>
+    </div>
 
     <div class="hero-actions">
-    <div class="hero-actions">
-      <button (click)="goToContact()" class="btn btn-primary">Envoyer un email</button>
-      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        Voir GitHub
-      </a>
-    </div>
+      <div class="hero-actions">
+        <button (click)="goToContact()" class="btn btn-primary">Envoyer un email</button>
+        <!--<a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          Voir GitHub
+        </a>-->
+      </div>
     </div>
   </div>
 </section>

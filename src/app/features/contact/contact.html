@@ -1,20 +1,26 @@
 <div class="contact-container">
   <div class="contact-header">
     <h1>Parlons de votre projet</h1>
-    <p class="subtitle">Je suis passionné par la création de solutions innovantes. N'hésitez pas à me contacter!</p>
+    <p class="subtitle">
+      Je suis passionné par la création de solutions innovantes. N'hésitez pas à me contacter.
+    </p>
   </div>
 
   <div class="contact-content">
     <div class="poster-section">
-      <img src="/affiche-kangoute.png" alt="Affiche Kangoute" class="contact-poster" loading="lazy" />
+      <img
+        src="/affiche-kangoute.png"
+        alt="Affiche Kangoute"
+        class="contact-poster"
+        loading="lazy"
+      />
     </div>
 
     <div class="contact-info-section">
-      <div class="form-wrapper">
+      <div id="contact-form" class="form-wrapper">
         <h2>Envoyez-moi un message</h2>
-        
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-          <!-- Nom -->
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
           <div class="form-group">
             <label for="nom">Nom *</label>
             <input
@@ -22,6 +28,7 @@
               id="nom"
               formControlName="nom"
               placeholder="Votre nom"
+              autocomplete="family-name"
               class="form-input"
               [class.error]="submitted && nom?.invalid"
             />
@@ -31,7 +38,6 @@
             </span>
           </div>
 
-          <!-- Prénom -->
           <div class="form-group">
             <label for="prenom">Prénom *</label>
             <input
@@ -39,6 +45,7 @@
               id="prenom"
               formControlName="prenom"
               placeholder="Votre prénom"
+              autocomplete="given-name"
               class="form-input"
               [class.error]="submitted && prenom?.invalid"
             />
@@ -48,7 +55,6 @@
             </span>
           </div>
 
-          <!-- Email -->
           <div class="form-group">
             <label for="email">Email *</label>
             <input
@@ -56,6 +62,7 @@
               id="email"
               formControlName="email"
               placeholder="votre.email@example.com"
+              autocomplete="email"
               class="form-input"
               [class.error]="submitted && email?.invalid"
             />
@@ -65,7 +72,30 @@
             </span>
           </div>
 
-          <!-- Message -->
+          <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input
+              type="tel"
+              id="telephone"
+              formControlName="telephone"
+              placeholder="Votre numéro"
+              autocomplete="tel"
+              class="form-input"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="sujet">Sujet</label>
+            <input
+              type="text"
+              id="sujet"
+              formControlName="sujet"
+              placeholder="Objet du message"
+              autocomplete="off"
+              class="form-input"
+            />
+          </div>
+
           <div class="form-group">
             <label for="message">Message *</label>
             <textarea
@@ -82,21 +112,19 @@
             </span>
           </div>
 
-          <!-- Submit Button -->
-          <button
-            type="submit"
-            class="cta-button"
-            [disabled]="loading"
-          >
+          <button type="submit" class="cta-button" [disabled]="loading">
             <span *ngIf="!loading">Envoyer le message</span>
             <span *ngIf="loading" class="loading-spinner">Envoi en cours...</span>
           </button>
 
-          <!-- Success/Error Message -->
           <div class="success-message" *ngIf="message && messageType === 'success'">
             {{ message }}
           </div>
-          <div class="success-message" *ngIf="message && messageType === 'error'" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fecaca;">
+          <div
+            class="success-message"
+            *ngIf="message && messageType === 'error'"
+            style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fecaca;"
+          >
             {{ message }}
           </div>
         </form>

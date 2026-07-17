@@ -1,10 +1,10 @@
-<h1>A propos</h1>
-<p>Voici les outils que j'utilise pour developper mes projets.</p>
+<h1>{{ languageService.translate('about.title') }}</h1>
+<p>{{ languageService.translate('about.intro') }}</p>
 
 <app-framework-grid></app-framework-grid>
 
 <!-- Animated Title -->
-<h2 class="animated-title">Savoir-faire supplémentaires : Créer des solutions innovantes sans coder</h2>
+<h2 class="animated-title">{{ languageService.translate('about.extraTitle') }}</h2>
 
 <!-- Expertise Section -->
 <section class="expertise-section">
@@ -22,18 +22,18 @@
       <text x="120" y="105" font-size="28" font-weight="bold" fill="#f59e0b" font-family="Arial">/&gt;</text>
     </svg>
     <h3>No Code</h3>
-    <p>Je suis capable de créer des solutions complètes avec des plateformes <strong>No Code</strong> comme Zapier, combinant design et fonctionnalité sans écrire une seule ligne de code.</p>
+    <p>{{ languageService.translate('about.noCodeText') }}</p>
   </div>
 
   <div class="expertise-card wordpress-card">
     <img src="https://s.w.org/style/images/about/WordPress-logotype-wmark.png" alt="Logo WordPress" class="expertise-logo" loading="lazy" />
     <h3>WordPress</h3>
-    <p>Expert en création de sites web avec <strong>WordPress</strong>, en combinant thèmes premium, plugins puissants et personnalisation avancée pour un rendu professionnel.</p>
+    <p>{{ languageService.translate('about.wordpressText') }}</p>
   </div>
 
   <div class="expertise-card ai-card">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="Logo IA" class="expertise-logo" loading="lazy" />
-    <h3>IA & Stratégie</h3>
-    <p>Utilise l'<strong>Intelligence Artificielle</strong> pour des besoins stratégiques, optimiser les processus et gagner du temps précieux dans la réalisation de projets.</p>
+    <h3>{{ languageService.translate('about.aiTitle') }}</h3>
+    <p>{{ languageService.translate('about.aiText') }}</p>
   </div>
 </section>

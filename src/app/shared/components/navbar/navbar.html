@@ -5,18 +5,37 @@
         routerLink="/"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }">
-        Accueil
+        {{ languageService.translate('nav.home') }}
       </a>
     </li>
     <li>
       <a routerLink="/about" routerLinkActive="active">
-        À propos
+        {{ languageService.translate('nav.about') }}
       </a>
     </li>
     <li>
       <a routerLink="/contact" routerLinkActive="active">
-        Contact
+        {{ languageService.translate('nav.contact') }}
       </a>
     </li>
   </ul>
+
+  <label class="language-switcher" [attr.aria-label]="languageService.translate('language.label')">
+    <span
+      class="language-flag"
+      [class.flag-fr]="languageService.currentLanguage() === 'fr'"
+      [class.flag-en]="languageService.currentLanguage() === 'en'"
+      [class.flag-nl]="languageService.currentLanguage() === 'nl'"
+      aria-hidden="true">
+    </span>
+
+    <select
+      [ngModel]="languageService.currentLanguage()"
+      (ngModelChange)="languageService.setLanguage($event)"
+      [attr.aria-label]="languageService.translate('language.label')">
+      <option [ngValue]="'fr'">FR - {{ languageService.translate('language.fr') }}</option>
+      <option [ngValue]="'en'">EN - {{ languageService.translate('language.en') }}</option>
+      <option [ngValue]="'nl'">NL - {{ languageService.translate('language.nl') }}</option>
+    </select>
+  </label>
 </nav>

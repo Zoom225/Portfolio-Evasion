@@ -1,8 +1,8 @@
 <div class="contact-container">
   <div class="contact-header">
-    <h1>Parlons de votre projet</h1>
+    <h1>{{ languageService.translate('contact.title') }}</h1>
     <p class="subtitle">
-      Je suis passionné par la création de solutions innovantes. N'hésitez pas à me contacter.
+      {{ languageService.translate('contact.subtitle') }}
     </p>
   </div>
 
@@ -10,7 +10,7 @@
     <div class="poster-section">
       <img
         src="/affiche-kangoute.png"
-        alt="Affiche Kangoute"
+        [alt]="languageService.translate('contact.posterAlt')"
         class="contact-poster"
         loading="lazy"
       />
@@ -18,114 +18,114 @@
 
     <div class="contact-info-section">
       <div id="contact-form" class="form-wrapper">
-        <h2>Envoyez-moi un message</h2>
+        <h2>{{ languageService.translate('contact.formTitle') }}</h2>
 
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form" novalidate>
           <div class="form-group">
-            <label for="nom">Nom *</label>
+            <label for="nom">{{ languageService.translate('contact.lastName') }}</label>
             <input
               type="text"
               id="nom"
               formControlName="nom"
-              placeholder="Votre nom"
+              [placeholder]="languageService.translate('contact.lastNamePlaceholder')"
               autocomplete="family-name"
               class="form-input"
               [class.error]="submitted && nom?.invalid"
             />
             <span class="error-message" *ngIf="submitted && nom?.invalid">
-              <span *ngIf="nom?.errors?.['required']">Le nom est requis</span>
-              <span *ngIf="nom?.errors?.['minlength']">Minimum 2 caractères</span>
+              <span *ngIf="nom?.errors?.['required']">{{ languageService.translate('contact.requiredLastName') }}</span>
+              <span *ngIf="nom?.errors?.['minlength']">{{ languageService.translate('contact.minTwo') }}</span>
             </span>
           </div>
 
           <div class="form-group">
-            <label for="prenom">Prénom *</label>
+            <label for="prenom">{{ languageService.translate('contact.firstName') }}</label>
             <input
               type="text"
               id="prenom"
               formControlName="prenom"
-              placeholder="Votre prénom"
+              [placeholder]="languageService.translate('contact.firstNamePlaceholder')"
               autocomplete="given-name"
               class="form-input"
               [class.error]="submitted && prenom?.invalid"
             />
             <span class="error-message" *ngIf="submitted && prenom?.invalid">
-              <span *ngIf="prenom?.errors?.['required']">Le prénom est requis</span>
-              <span *ngIf="prenom?.errors?.['minlength']">Minimum 2 caractères</span>
+              <span *ngIf="prenom?.errors?.['required']">{{ languageService.translate('contact.requiredFirstName') }}</span>
+              <span *ngIf="prenom?.errors?.['minlength']">{{ languageService.translate('contact.minTwo') }}</span>
             </span>
           </div>
 
           <div class="form-group">
-            <label for="email">Email *</label>
+            <label for="email">{{ languageService.translate('contact.email') }}</label>
             <input
               type="email"
               id="email"
               formControlName="email"
-              placeholder="votre.email@example.com"
+              [placeholder]="languageService.translate('contact.emailPlaceholder')"
               autocomplete="email"
               class="form-input"
               [class.error]="submitted && email?.invalid"
             />
             <span class="error-message" *ngIf="submitted && email?.invalid">
-              <span *ngIf="email?.errors?.['required']">L'email est requis</span>
-              <span *ngIf="email?.errors?.['email']">Email invalide</span>
+              <span *ngIf="email?.errors?.['required']">{{ languageService.translate('contact.requiredEmail') }}</span>
+              <span *ngIf="email?.errors?.['email']">{{ languageService.translate('contact.invalidEmail') }}</span>
             </span>
           </div>
 
           <div class="form-group">
-            <label for="telephone">Téléphone</label>
+            <label for="telephone">{{ languageService.translate('contact.phone') }}</label>
             <input
               type="tel"
               id="telephone"
               formControlName="telephone"
-              placeholder="Votre numéro"
+              [placeholder]="languageService.translate('contact.phonePlaceholder')"
               autocomplete="tel"
               class="form-input"
             />
           </div>
 
           <div class="form-group">
-            <label for="sujet">Sujet</label>
+            <label for="sujet">{{ languageService.translate('contact.subject') }}</label>
             <input
               type="text"
               id="sujet"
               formControlName="sujet"
-              placeholder="Objet du message"
+              [placeholder]="languageService.translate('contact.subjectPlaceholder')"
               autocomplete="off"
               class="form-input"
             />
           </div>
 
           <div class="form-group">
-            <label for="message">Message *</label>
+            <label for="message">{{ languageService.translate('contact.message') }}</label>
             <textarea
               id="message"
               formControlName="message"
-              placeholder="Décrivez votre projet..."
+              [placeholder]="languageService.translate('contact.messagePlaceholder')"
               class="form-textarea"
               [class.error]="submitted && messageControl?.invalid"
               rows="5"
             ></textarea>
             <span class="error-message" *ngIf="submitted && messageControl?.invalid">
-              <span *ngIf="messageControl?.errors?.['required']">Le message est requis</span>
-              <span *ngIf="messageControl?.errors?.['minlength']">Minimum 10 caractères</span>
+              <span *ngIf="messageControl?.errors?.['required']">{{ languageService.translate('contact.requiredMessage') }}</span>
+              <span *ngIf="messageControl?.errors?.['minlength']">{{ languageService.translate('contact.minMessage') }}</span>
             </span>
           </div>
 
           <button type="submit" class="cta-button" [disabled]="loading">
-            <span *ngIf="!loading">Envoyer le message</span>
-            <span *ngIf="loading" class="loading-spinner">Envoi en cours...</span>
+            <span *ngIf="!loading">{{ languageService.translate('contact.submit') }}</span>
+            <span *ngIf="loading" class="loading-spinner">{{ languageService.translate('contact.loading') }}</span>
           </button>
 
-          <div class="success-message" *ngIf="message && messageType === 'success'">
-            {{ message }}
+          <div class="success-message" *ngIf="messageKey && messageType === 'success'">
+            {{ languageService.translate(messageKey) }}
           </div>
           <div
             class="success-message"
-            *ngIf="message && messageType === 'error'"
+            *ngIf="messageKey && messageType === 'error'"
             style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fecaca;"
           >
-            {{ message }}
+            {{ languageService.translate(messageKey) }}
           </div>
         </form>
       </div>

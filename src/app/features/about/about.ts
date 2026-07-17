@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FrameworkGridComponent } from '../../app/shared/components/framework-grid/framework-grid';
+import { LanguageService } from '../../core/services/language';
 
 @Component({
   selector: 'app-about',
@@ -9,4 +10,6 @@ import { FrameworkGridComponent } from '../../app/shared/components/framework-gr
   templateUrl: './about.html',
   styleUrl: './about.css'
 })
-export class About {}
+export class About {
+  constructor(public languageService: LanguageService) {}
+}

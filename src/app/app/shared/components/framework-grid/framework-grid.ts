@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../../../core/services/language';
 
 type FrameworkCard = {
   name: string;
@@ -15,6 +16,8 @@ type FrameworkCard = {
   styleUrl: './framework-grid.css'
 })
 export class FrameworkGridComponent {
+  constructor(public languageService: LanguageService) {}
+
   frameworks: FrameworkCard[] = [
     {
       name: 'Angular',

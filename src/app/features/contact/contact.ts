@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { finalize } from 'rxjs/operators';
+import { LanguageService } from '../../core/services/language';
 
 @Component({
   selector: 'app-contact',
@@ -15,12 +16,12 @@ export class Contact {
   contactForm: FormGroup;
   submitted = false;
   loading = false;
-  message = '';
+  messageKey = '';
   messageType: 'success' | 'error' = 'success';
 
   private formSubmitUrl = 'https://formsubmit.co/ajax/bobypro225@gmail.com';
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, public languageService: LanguageService) {
     this.contactForm = this.fb.group({
       nom: ['', [Validators.required, Validators.minLength(2)]],
       prenom: ['', [Validators.required, Validators.minLength(2)]],
@@ -43,7 +44,7 @@ export class Contact {
     }
 
     this.loading = true;
-    this.message = 'Envoi en cours...';
+    this.messageKey = 'contact.loading';
     this.messageType = 'success';
 
     const payload = {
@@ -65,7 +66,7 @@ export class Contact {
     ).subscribe({
       next: (response) => {
         console.log('Formulaire soumis avec succès', response);
-        this.message = 'Message envoyé avec succès !';
+        this.messageKey = 'contact.success';
         this.messageType = 'success';
         this.contactForm.reset({
           nom: '',
@@ -79,7 +80,7 @@ export class Contact {
       },
       error: (error) => {
         console.error("Erreur lors de l'envoi", error);
-        this.message = "Une erreur est survenue. Veuillez réessayer plus tard.";
+        this.messageKey = 'contact.error';
         this.messageType = 'error';
       }
     });

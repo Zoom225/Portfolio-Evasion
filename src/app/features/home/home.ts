@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LanguageService } from '../../core/services/language';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,29 +33,25 @@ export class HomeComponent implements AfterViewInit {
   @ViewChildren('projectCard') projectCards!: QueryList<ElementRef>;
   @ViewChildren('skillItem') skillItems!: QueryList<ElementRef>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public languageService: LanguageService) {}
 
   projects = [
     {
-      title: 'Application Full-Stack de Gestion',
-      description:
-        'Application web moderne avec Angular, Spring Boot et base de données relationnelle pour gérer des utilisateurs, données métier et tableaux de bord.',
+      titleKey: 'project.managementTitle',
+      descriptionKey: 'project.managementText',
       stack: ['Angular', 'Spring Boot', 'PostgreSQL']
     },
     {
-      title: 'API Sécurisée Spring Boot',
-      description:
-        'Backend REST structuré avec authentification, gestion des rôles, endpoints sécurisés et intégration frontend Angular.',
+      titleKey: 'project.apiTitle',
+      descriptionKey: 'project.apiText',
       stack: ['Java', 'Spring Security', 'JWT']
     },
     {
-      title: 'Plateforme Dockerisée',
-      description:
-        'Projet conteneurisé avec Docker pour simplifier le déploiement local, la configuration de l’environnement et l’intégration de la base de données.',
+      titleKey: 'project.dockerTitle',
+      descriptionKey: 'project.dockerText',
       stack: ['Docker', 'Angular', 'Java']
     }
   ];
-
   skills = [
     'Angular',
     'TypeScript',

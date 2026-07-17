@@ -5,7 +5,7 @@
   <div class="container hero-grid">
     <div class="hero-content">
       <div #heroBadge class="hero-badge">
-        Disponible pour,une opportunité web développeur
+        {{ languageService.translate('home.badge') }}
       </div>
 
       <h1 #heroTitle>
@@ -13,17 +13,16 @@
       </h1>
 
       <h2 #heroSubtitle>
-        Développeur Full-Stack Java & Angular
+        {{ languageService.translate('home.subtitle') }}
       </h2>
 
       <p #heroText class="hero-text">
-        Je conçois des applications web modernes, responsives et performantes
-        avec Angular, Spring Boot, Docker et PostgreSQL.
+        {{ languageService.translate('home.text') }}
       </p>
 
       <div #heroActions class="hero-actions">
-        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+        <a href="#projects" class="btn btn-primary">{{ languageService.translate('home.projectsCta') }}</a>
+        <a href="#contact" class="btn btn-secondary">{{ languageService.translate('home.contactCta') }}</a>
       </div>
     </div>
 
@@ -49,29 +48,18 @@
 
 <section #revealSection class="about section">
   <div class="container">
-    <p class="section-label">À propos</p>
-    <h3 class="section-title">Une présentation claire de mon profil</h3>
+    <p class="section-label">{{ languageService.translate('home.aboutLabel') }}</p>
+    <h3 class="section-title">{{ languageService.translate('home.aboutTitle') }}</h3>
     <p class="section-text">
-      Cette page présente mon profil de développeur avec une identité visuelle moderne, une stack technique clairement
-      affichée et quelques projets concrets centrés sur Java et autre que j'ai pas implementé ici, Angular oui pour mon
-      portfolio et l’intégration full-stack.
-
-      Je me considère toujours comme un développeur en apprentissage, à un niveau intermédiaire : dans notre métier, il
-      y a toujours de nouvelles choses à découvrir et à maîtriser. Je suis capable de concevoir, développer et maintenir
-      des applications web sécurisées, évolutives et performantes.
-
-      Je possède des connaissances en analyse fonctionnelle, en modélisation UML, en développement d’API REST sécurisées
-      avec JWT, en gestion de bases de données relationnelles, en intégration front-end et en tests logiciels. Sérieux,
-      polyvalent et motivé, je travaille efficacement en équipe tout en respectant les objectifs et les délais d’un
-      projet.
+      {{ languageService.translate('home.aboutText') }}
     </p>
   </div>
 </section>
 
 <section #revealSection class="skills section">
   <div class="container">
-    <p class="section-label">Stack</p>
-    <h3 class="section-title">Technologies principales</h3>
+    <p class="section-label">{{ languageService.translate('home.stackLabel') }}</p>
+    <h3 class="section-title">{{ languageService.translate('home.stackTitle') }}</h3>
 
     <div class="skills-grid">
       <span #skillItem class="skill-chip" *ngFor="let skill of skills">
@@ -83,14 +71,14 @@
 
 <section #revealSection id="projects" class="projects section">
   <div class="container">
-    <p class="section-label">Projets</p>
-    <h3 class="section-title">Quelques réalisations à mettre en avant</h3>
+    <p class="section-label">{{ languageService.translate('home.projectsLabel') }}</p>
+    <h3 class="section-title">{{ languageService.translate('home.projectsTitle') }}</h3>
 
     <div class="projects-grid">
       <article #projectCard class="project-card" *ngFor="let project of projects">
         <div class="project-card-inner">
-          <h4>{{ project.title }}</h4>
-          <p>{{ project.description }}</p>
+          <h4>{{ languageService.translate(project.titleKey) }}</h4>
+          <p>{{ languageService.translate(project.descriptionKey) }}</p>
 
           <div class="project-stack">
             <span *ngFor="let item of project.stack">{{ item }}</span>
@@ -103,9 +91,9 @@
 
 <section #revealSection id="contact" class="contact section">
   <div class="container contact-box">
-    <p class="section-label">Contact</p>
-    <h3 class="section-title">Construisons quelque chose de solide</h3>
-    <div class="logo-carousel contact-carousel" aria-label="Technologies utilisées">
+    <p class="section-label">{{ languageService.translate('home.contactLabel') }}</p>
+    <h3 class="section-title">{{ languageService.translate('home.contactTitle') }}</h3>
+    <div class="logo-carousel contact-carousel" [attr.aria-label]="languageService.translate('home.carouselAria')">
       <div class="logo-track">
         <article class="logo-item">
           <svg viewBox="0 0 120 120" role="img" aria-label="WordPress" class="logo-svg logo-wordpress">
@@ -293,7 +281,7 @@
 
     <div class="hero-actions">
       <div class="hero-actions">
-        <button (click)="goToContact()" class="btn btn-primary">Envoyer un email</button>
+        <button (click)="goToContact()" class="btn btn-primary">{{ languageService.translate('home.emailButton') }}</button>
         <!--<a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
           Voir GitHub
         </a>-->

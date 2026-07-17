@@ -2,17 +2,17 @@
   <div class="footer-container">
     <div class="footer-cta">
       <div class="footer-cta-content">
-        <p class="footer-eyebrow">Une idee, un projet, une opportunite&nbsp;?</p>
+        <p class="footer-eyebrow">{{ languageService.translate('footer.eyebrow') }}</p>
         <h2 id="footer-title" class="footer-title">
-          Construisons une experience web qui fait la difference.
+          {{ languageService.translate('footer.title') }}
         </h2>
         <p class="footer-cta-text">
-          Echangeons autour de vos besoins et donnons une base solide a votre prochain projet.
+          {{ languageService.translate('footer.text') }}
         </p>
       </div>
 
       <a routerLink="/contact" fragment="contact-form" class="footer-cta-link">
-        <span>Parlons-en</span>
+        <span>{{ languageService.translate('footer.cta') }}</span>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 12h14M13 6l6 6-6 6" />
         </svg>
@@ -21,41 +21,41 @@
 
     <div class="footer-main">
       <div class="footer-identity">
-        <a routerLink="/" class="footer-brand" aria-label="Retour a l'accueil">
+        <a routerLink="/" class="footer-brand" [attr.aria-label]="languageService.translate('footer.homeAria')">
           <span class="footer-brand-mark" aria-hidden="true">KA</span>
           <span class="footer-brand-copy">
             <strong>Kangoute Azoumanan</strong>
-            <small>Developpeur Full-Stack</small>
+            <small>{{ languageService.translate('footer.brandRole') }}</small>
           </span>
         </a>
         <p>
-          Des applications Java & Angular modernes, fiables et pensees jusque dans les details.
+          {{ languageService.translate('footer.brandText') }}
         </p>
       </div>
 
-      <nav class="footer-navigation" aria-label="Navigation du pied de page">
-        <p class="footer-heading">Navigation</p>
-        <a routerLink="/">Accueil</a>
-        <a routerLink="/" fragment="projects">Projets</a>
-        <a routerLink="/about">A propos</a>
-        <a routerLink="/contact">Contact</a>
+      <nav class="footer-navigation" [attr.aria-label]="languageService.translate('footer.navigationAria')">
+        <p class="footer-heading">{{ languageService.translate('footer.navigation') }}</p>
+        <a routerLink="/">{{ languageService.translate('footer.home') }}</a>
+        <a routerLink="/" fragment="projects">{{ languageService.translate('footer.projects') }}</a>
+        <a routerLink="/about">{{ languageService.translate('footer.about') }}</a>
+        <a routerLink="/contact">{{ languageService.translate('footer.contact') }}</a>
       </nav>
 
       <div class="footer-availability">
-        <p class="footer-heading">Disponibilite</p>
+        <p class="footer-heading">{{ languageService.translate('footer.availabilityTitle') }}</p>
         <div class="availability-status">
           <span class="availability-dot" aria-hidden="true"></span>
-          <span>Ouvert aux opportunites web</span>
+          <span>{{ languageService.translate('footer.availability') }}</span>
         </div>
         <p class="footer-stack">Java · Angular · Spring Boot</p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© {{ currentYear }} Kangoute Azoumanan. Tous droits reserves.</p>
-      <p class="footer-signature">Concu avec Angular et beaucoup de curiosite.</p>
-      <a href="#top" class="back-to-top" aria-label="Retour en haut de la page">
-        <span>Retour en haut</span>
+      <p>© {{ currentYear }} Kangoute Azoumanan. {{ languageService.translate('footer.rights') }}</p>
+      <p class="footer-signature">{{ languageService.translate('footer.signature') }}</p>
+      <a href="#top" class="back-to-top" [attr.aria-label]="languageService.translate('footer.backTop')">
+        <span>{{ languageService.translate('footer.backTop') }}</span>
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="m6 14 6-6 6 6" />
         </svg>

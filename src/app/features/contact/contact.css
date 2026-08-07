@@ -3,6 +3,12 @@
   color: #111827;
 }
 
+:host *,
+:host *::before,
+:host *::after {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 p {
@@ -11,9 +17,13 @@ p {
 
 .contact-container {
   position: relative;
-  max-width: 1280px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
   padding: 2rem 1rem 3rem;
+  overflow: hidden;
+  border-radius: 30px;
+  isolation: isolate;
 }
 
 .contact-container::before {
@@ -84,6 +94,8 @@ p {
 
 .poster-section,
 .contact-info-section {
+  width: 100%;
+  min-width: 0;
   min-height: clamp(620px, 72vh, 760px);
   display: flex;
 }
@@ -141,12 +153,15 @@ p {
 
 .form-wrapper {
   width: 100%;
+  height: 100%;
   min-height: inherit;
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 28px;
+  background-clip: padding-box;
   background:
     linear-gradient(180deg, rgba(10, 18, 40, 0.82), rgba(25, 33, 60, 0.88)),
     linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(168, 85, 247, 0.28));
@@ -188,6 +203,7 @@ p {
 .form-input,
 .form-textarea {
   width: 100%;
+  max-width: 100%;
   padding: 0.95rem 1rem;
   border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 14px;
@@ -292,6 +308,7 @@ p {
 @media (max-width: 768px) {
   .contact-container {
     padding: 1.25rem 1rem 2rem;
+    border-radius: 24px;
   }
 
   .contact-header {
@@ -316,6 +333,7 @@ p {
 @media (max-width: 480px) {
   .contact-container {
     padding: 1rem 0.75rem 1.5rem;
+    border-radius: 20px;
   }
 
   .contact-content {

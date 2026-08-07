@@ -42,7 +42,7 @@ const translations: Record<AppLanguage, Record<string, string>> = {
     'home.stackLabel': 'Stack',
     'home.stackTitle': 'Technologies principales',
     'home.projectsLabel': 'Projets',
-    'home.projectsTitle': 'Quelques realisations a mettre en avant',
+    'home.projectsTitle': 'Bientôt, quelques projets de démonstration seront disponibles ici',
     'home.contactLabel': 'Contact',
     'home.contactTitle': 'Construisons quelque chose de solide',
     'home.carouselAria': 'Technologies utilisees',

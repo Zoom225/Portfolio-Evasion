@@ -73,6 +73,10 @@ export class HomeComponent implements AfterViewInit {
     this.router.navigate(['/contact']);
   }
 
+  getProjectTitleWords(): string[] {
+    return this.languageService.translate('home.projectsTitle').split(' ');
+  }
+
   ngAfterViewInit(): void {
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 

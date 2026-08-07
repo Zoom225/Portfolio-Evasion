@@ -72,7 +72,17 @@
 <section #revealSection id="projects" class="projects section">
   <div class="container">
     <p class="section-label">{{ languageService.translate('home.projectsLabel') }}</p>
-    <h3 class="section-title">{{ languageService.translate('home.projectsTitle') }}</h3>
+    <h3 class="section-title scrolling-project-title" aria-label="{{ languageService.translate('home.projectsTitle') }}">
+      <span class="scrolling-project-line" aria-hidden="true">
+        <span
+          class="scrolling-project-word"
+          *ngFor="let word of getProjectTitleWords(); let index = index"
+          [style.animation-delay]="(index * 0.12) + 's'"
+        >
+          {{ word }}
+        </span>
+      </span>
+    </h3>
 
     <div class="projects-grid">
       <article #projectCard class="project-card" *ngFor="let project of projects">

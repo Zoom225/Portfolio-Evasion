@@ -1,5 +1,7 @@
 :host {
   display: block;
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 .site-footer {
@@ -26,7 +28,7 @@
 .footer-container {
   position: relative;
   z-index: 1;
-  width: min(100% - 40px, 1120px);
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
 }
 

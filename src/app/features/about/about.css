@@ -1,6 +1,15 @@
 :host {
   display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   color: #111827;
+}
+
+:host *,
+:host *::before,
+:host *::after {
+  box-sizing: border-box;
 }
 
 h1 {

@@ -93,6 +93,36 @@
           <div class="project-stack">
             <span *ngFor="let item of project.stack">{{ item }}</span>
           </div>
+
+          <div class="project-actions" *ngIf="project.links">
+            <a
+              class="btn btn-primary project-demo-link"
+              [href]="project.links.demo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ languageService.translate('project.demoLink') }}
+            </a>
+
+            <div class="project-source-links" aria-label="Liens vers le code source">
+              <a
+                class="btn btn-secondary project-source-link"
+                [href]="project.links.backend"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ languageService.translate('project.backendLink') }}
+              </a>
+              <a
+                class="btn btn-secondary project-source-link"
+                [href]="project.links.frontend"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ languageService.translate('project.frontendLink') }}
+              </a>
+            </div>
+          </div>
         </div>
       </article>
     </div>

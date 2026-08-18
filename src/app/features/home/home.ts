@@ -41,7 +41,7 @@ export class HomeComponent implements AfterViewInit {
       descriptionKey: 'project.managementText',
       stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
       links: {
-        demo: 'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app',
+        demo: 'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app/',
         backend: 'https://github.com/Zoom225/appointment-backend',
         frontend: 'https://github.com/Zoom225/appointment-Front'
       }

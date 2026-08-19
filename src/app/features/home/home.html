@@ -104,7 +104,11 @@
               {{ languageService.translate('project.demoLink') }}
             </a>
 
-            <div class="project-source-links" aria-label="Liens vers le code source">
+            <div
+              class="project-source-links"
+              aria-label="Liens vers le code source"
+              *ngIf="project.links.backend && project.links.frontend"
+            >
               <a
                 class="btn btn-secondary project-source-link"
                 [href]="project.links.backend"

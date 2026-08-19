@@ -14,6 +14,17 @@ import { LanguageService } from '../../core/services/language';
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface Project {
+  titleKey: string;
+  descriptionKey: string;
+  stack: string[];
+  links?: {
+    demo: string;
+    backend?: string;
+    frontend?: string;
+  };
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -35,15 +46,13 @@ export class HomeComponent implements AfterViewInit {
 
   constructor(private router: Router, public languageService: LanguageService) {}
 
-  projects = [
+  projects: Project[] = [
     {
       titleKey: 'project.managementTitle',
       descriptionKey: 'project.managementText',
       stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
       links: {
-        demo: 'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app/',
-        backend: 'https://github.com/Zoom225/appointment-backend',
-        frontend: 'https://github.com/Zoom225/appointment-Front'
+        demo: 'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app/'
       }
     },
     {

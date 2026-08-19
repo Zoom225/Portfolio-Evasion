@@ -52,7 +52,7 @@ export class HomeComponent implements AfterViewInit {
       descriptionKey: 'project.managementText',
       stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
       links: {
-        demo: 'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app/'
+        demo: 'https://gestion-de-rendez-vous.vercel.app'
       }
     },
     {
@@ -89,7 +89,7 @@ export class HomeComponent implements AfterViewInit {
 
   openAppointmentProject(): void {
     window.open(
-      'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app/',
+      'https://gestion-de-rendez-vous.vercel.app',
       '_blank',
       'noopener,noreferrer'
     );

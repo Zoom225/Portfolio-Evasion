@@ -498,6 +498,18 @@ h2 {
     padding-top: 96px;
   }
 
+  .hero-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .visual-card {
     min-height: 320px;
   }
@@ -517,6 +529,18 @@ h2 {
     font-size: 0.85rem;
   }
 
+  .hero-badge {
+    display: flex;
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+    margin: 0 auto 22px;
+    padding: 11px 14px;
+    white-space: normal;
+    line-height: 1.45;
+    text-align: center;
+  }
+
   .project-card-inner,
   .contact-box,
   .visual-card {
@@ -526,6 +550,9 @@ h2 {
 
   .btn {
     width: 100%;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
   }
 }
 

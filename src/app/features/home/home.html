@@ -95,14 +95,13 @@
           </div>
 
           <div class="project-actions" *ngIf="project.links">
-            <a
+            <button
+              type="button"
               class="btn btn-primary project-demo-link"
-              [href]="project.links.demo"
-              target="_blank"
-              rel="noopener noreferrer"
+              (click)="openAppointmentProject()"
             >
               {{ languageService.translate('project.demoLink') }}
-            </a>
+            </button>
 
             <div
               class="project-source-links"

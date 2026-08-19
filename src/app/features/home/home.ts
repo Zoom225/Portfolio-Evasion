@@ -87,6 +87,14 @@ export class HomeComponent implements AfterViewInit {
     this.router.navigate(['/contact']);
   }
 
+  openAppointmentProject(): void {
+    window.open(
+      'https://gestion-de-rendez-vous-f8gh55aqb-kangoute.vercel.app/',
+      '_blank',
+      'noopener,noreferrer'
+    );
+  }
+
   getProjectTitleWords(): string[] {
     return this.languageService.translate('home.projectsTitle').split(' ');
   }

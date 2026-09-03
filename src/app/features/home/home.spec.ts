@@ -21,4 +21,16 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should expose the StockFlow demo and source links', () => {
+    const stockflowProject = component.projects.find(
+      (project) => project.titleKey === 'project.stockflowTitle'
+    );
+
+    expect(stockflowProject?.links).toEqual({
+      demo: 'https://gestions-stock-demo.vercel.app/',
+      backend: 'https://github.com/Zoom225/stockflow-backend',
+      frontend: 'https://github.com/Zoom225/stockflow-frontend'
+    });
+  });
 });

@@ -48,6 +48,16 @@ export class HomeComponent implements AfterViewInit {
 
   projects: Project[] = [
     {
+      titleKey: 'project.stockflowTitle',
+      descriptionKey: 'project.stockflowText',
+      stack: ['Angular', 'Spring Boot', 'PostgreSQL', 'JWT'],
+      links: {
+        demo: 'https://gestions-stock-demo.vercel.app/',
+        backend: 'https://github.com/Zoom225/stockflow-backend',
+        frontend: 'https://github.com/Zoom225/stockflow-frontend'
+      }
+    },
+    {
       titleKey: 'project.managementTitle',
       descriptionKey: 'project.managementText',
       stack: ['Angular', 'Spring Boot', 'PostgreSQL'],
@@ -87,14 +97,6 @@ export class HomeComponent implements AfterViewInit {
 
   goToContact() {
     this.router.navigate(['/contact']);
-  }
-
-  openAppointmentProject(): void {
-    window.open(
-      'https://gestion-de-rendez-vous.vercel.app',
-      '_blank',
-      'noopener,noreferrer'
-    );
   }
 
   getProjectTitleWords(): string[] {

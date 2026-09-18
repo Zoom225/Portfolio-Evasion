@@ -360,7 +360,10 @@ p {
   }
 
   .cta-button {
-    padding: 0.95rem 1rem;
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
   }
 }
 

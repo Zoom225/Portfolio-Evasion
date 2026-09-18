@@ -376,6 +376,9 @@
 
   .footer-cta-link {
     width: 100%;
+    min-height: 46px;
+    padding: 0 18px;
+    font-size: 0.9rem;
   }
 
   .footer-main {
